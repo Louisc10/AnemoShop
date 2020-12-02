@@ -128,19 +128,19 @@ public class LoginPage extends JFrame implements ActionListener {
 		regisBtn.setBorderPainted(false);
 		regisBtn.setFocusPainted(false);
 		regisBtn.setContentAreaFilled(false);
-		
+
 		loginBtn.setBackground(Main.THEME_COLOR);
 		regisBtn.setBackground(Main.THEME_COLOR);
 
 		loginBtn.setFont(new Font(Main.FONT_NAME, Main.FONT_STYLE, Main.FONT_SIZE_CONTENT));
 		regisBtn.setFont(new Font(Main.FONT_NAME, Main.FONT_STYLE, 12));
 		regisBtn.setForeground(Color.BLUE);
-		
+
 		Font original = regisBtn.getFont();
-        Map attributes = original. getAttributes();
-        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        regisBtn.setFont(original.deriveFont(attributes));
-        regisBtn.setHorizontalAlignment(SwingConstants.RIGHT);
+		Map attributes = original.getAttributes();
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+		regisBtn.setFont(original.deriveFont(attributes));
+		regisBtn.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		loginBtn.setPreferredSize(new Dimension(100, 30));
 		regisBtn.setPreferredSize(new Dimension(450, 30));
@@ -188,20 +188,20 @@ public class LoginPage extends JFrame implements ActionListener {
 			if (Main.getvUser().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "No user. Please register", "Warning", JOptionPane.WARNING_MESSAGE);
 				return;
+			} else if (username.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Fill Username Field", "Warning", JOptionPane.WARNING_MESSAGE);
+				return;
+			} else if (password.isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Fill Password Field", "Warning", JOptionPane.WARNING_MESSAGE);
+				return;
 			} else {
 				Vector<User> vUser = Main.getvUser();
 				for (int i = 0; i < vUser.size(); i++) {
 					User user = (User) vUser.get(i);
 
-					if (username.equals(user.getUsername())) {
-						if (password.equals(user.getPassword())) {
-							moveToPageBuy(user);
-							return;
-						} else {
-							JOptionPane.showMessageDialog(this, "Password is invalid", "Warning",
-									JOptionPane.WARNING_MESSAGE);
-							return;
-						}
+					if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+						moveToPageBuy(user);
+						return;
 					}
 				}
 				JOptionPane.showMessageDialog(this, "User not found, please register", "Warning",

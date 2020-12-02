@@ -57,7 +57,7 @@ public class ShowHistory extends JInternalFrame implements MouseListener {
 		setVisible(true);
 
 		setSize(530, 400);
-		setMinimumSize(new Dimension(500, 400));
+		setMinimumSize(new Dimension(530, 400));
 		setClosable(true);
 		setIconifiable(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

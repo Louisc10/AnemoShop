@@ -264,6 +264,10 @@ public class ViewCart extends JInternalFrame implements MouseListener {
 		} else if (e.getSource() == buyBtn) {
 			long total = 0;
 			Vector<Cart> carts = Main.getvCartByUser(activateUser);
+			if(carts.isEmpty()){
+				JOptionPane.showMessageDialog(this, "No Item in Cart");
+				return;
+			}
 			for (Cart cart : carts) {
 				total += cart.getQuantity() * cart.getItem().getPrice();
 			}

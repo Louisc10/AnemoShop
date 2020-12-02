@@ -108,6 +108,13 @@ public class HomePage extends JFrame implements ActionListener {
 		this.add(dp);
 	}
 
+	private ImageIcon imageResizer(String path, int size) {
+		ImageIcon imageIcon = new ImageIcon(path);
+		Image image = imageIcon.getImage();
+		Image newimg = image.getScaledInstance(size, size, java.awt.Image.SCALE_SMOOTH);
+		return new ImageIcon(newimg);
+	}
+
 	private void initializeMenuBar() {
 		JMenuBar mb = new JMenuBar();
 		menu = new JMenu("Menu");
@@ -116,11 +123,11 @@ public class HomePage extends JFrame implements ActionListener {
 		historyCart = new JMenuItem("My Transaction History");
 		logOut = new JMenuItem("Log Out");
 		closeApp = new JMenuItem("Close");
-		showItem.setIcon(new ImageIcon("assets/item25.png"));
-		viewCart.setIcon(new ImageIcon("assets/cart25.png"));
-		historyCart.setIcon(new ImageIcon("assets/history25.png"));
-		logOut.setIcon(new ImageIcon("assets/logout25.png"));
-		closeApp.setIcon(new ImageIcon("assets/close25.png"));
+		showItem.setIcon(imageResizer("assets/item.png", 25));
+		viewCart.setIcon(imageResizer("assets/cart.png", 25));
+		historyCart.setIcon(imageResizer("assets/history.png", 25));
+		logOut.setIcon(imageResizer("assets/logout.png", 25));
+		closeApp.setIcon(imageResizer("assets/close.png", 25));
 		showItem.addActionListener(this);
 		viewCart.addActionListener(this);
 		historyCart.addActionListener(this);

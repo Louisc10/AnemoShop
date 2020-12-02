@@ -124,6 +124,11 @@ public class RegisPage extends JFrame implements ActionListener{
 					errorMsg.setText("");
 					return;
 				}
+				if(!WordChecker.checkAlphabet(fUsername)){
+					errorMsg.setText("Username must only contain Alphabet");
+					errorMsg.setForeground(Color.RED);
+					return;
+				}
 				Vector<User> vUser = Main.getvUser();
 				for (int i = 0; i < vUser.size(); i++) {
 					User user2 = (User) vUser.get(i);
@@ -264,14 +269,14 @@ public class RegisPage extends JFrame implements ActionListener{
 						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (!fEmail.contains("@") || fEmail.indexOf("@") != fEmail.lastIndexOf("@")) {
-				JOptionPane.showMessageDialog(null, "Email must have one '@'", "Warning", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Email must only have one '@'", "Warning", JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fEmail.startsWith("@")) {
 				JOptionPane.showMessageDialog(null, "Email can't start with '@'", "Warning",
 						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fEmail.contains("@.") || fEmail.contains(".@")) {
-				JOptionPane.showMessageDialog(null, "Email can't be \"@.\" or \".@\"", "Warning",
+				JOptionPane.showMessageDialog(null, "Email \".\" must not be next to \"@\"", "Warning",
 						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (!fEmail.endsWith(".com")) {
@@ -279,37 +284,48 @@ public class RegisPage extends JFrame implements ActionListener{
 						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fPass.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Password must be filled");
-				return;
-			} else if (fPass.contains(" ")) {
-				JOptionPane.showMessageDialog(null, "Password can't contain space");
+				JOptionPane.showMessageDialog(null, "Password must be filled", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fPass.length() < 5 || fPass.length() > 30) {
-				JOptionPane.showMessageDialog(null, "Password's Length must between 5 and 30 characters");
+				JOptionPane.showMessageDialog(null, "Password's Length must between 5 and 30 characters", "Warning",
+						JOptionPane.WARNING_MESSAGE);
+				return;
+			} else if (fPass.contains(" ")) {
+				JOptionPane.showMessageDialog(null, "Password can't contain space", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (!WordChecker.checkAlphanum(fPass)) {
-				JOptionPane.showMessageDialog(null, "Password must only contain Alphabet and Number");
+				JOptionPane.showMessageDialog(null, "Password must only contain Alphabet and Number\nand at least one Alphabet and one Number", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fCpass.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Confirm Password must be filled");
+				JOptionPane.showMessageDialog(null, "Confirm Password must be filled", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (!fCpass.contentEquals(fPass)) {
-				JOptionPane.showMessageDialog(null, "Confirm Password must be matched with password");
+				JOptionPane.showMessageDialog(null, "Confirm Password must be matched with password", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fName.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Name must be filled");
+				JOptionPane.showMessageDialog(null, "Name must be filled", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (!fName.trim().contains(" ")) {
-				JOptionPane.showMessageDialog(null, "Name must at least 2 words");
+				JOptionPane.showMessageDialog(null, "Name must at least 2 words", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fUsername.isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Username must be filled");
+				JOptionPane.showMessageDialog(null, "Username must be filled", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (fUsername.length() < 5 || fUsername.length() > 30) {
-				JOptionPane.showMessageDialog(null, "Username's Length must between 5 and 30 characters");
+				JOptionPane.showMessageDialog(null, "Username's Length must between 5 and 30 characters", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (!WordChecker.checkAlphabet(fUsername)) {
-				JOptionPane.showMessageDialog(null, "Username must only contain characters");
+				JOptionPane.showMessageDialog(null, "Username must only contain characters", "Warning",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			} else {
 

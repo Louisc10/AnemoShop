@@ -241,7 +241,7 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 
 		return p1;
 	}
-	
+
 	public void refreshTable() {
 		this.getContentPane().removeAll();
 		initializeAll();
@@ -271,17 +271,16 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 					text = "You added " + qty + " more item(s) of " + itemSelected.getName() + " to cart";
 				}
 				JOptionPane.showMessageDialog(this, text);
-
-				imgLbl = new JLabel();
-				tfItemName.setText("");
-				tfItemPrice.setText("0 G");
-				taItemDescription.setText("");
-				SpinnerModel sm = new SpinnerNumberModel(0, 0, 100, 1);
-				sItemQuantity.setModel(sm);
-				sItemQuantity.setValue(0);
-				tfTotalPrice.setText("0 G");
-				itemSelected = null;
 				try {
+					imgLbl = new JLabel();
+					tfItemName.setText("");
+					tfItemPrice.setText("0 G");
+					taItemDescription.setText("");
+					SpinnerModel sm = new SpinnerNumberModel(0, 0, 100, 1);
+					sItemQuantity.setModel(sm);
+					sItemQuantity.setValue(0);
+					tfTotalPrice.setText("0 G");
+					itemSelected = null;
 					HomePage.getInstance().viewCarts.refreshTable();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -302,7 +301,7 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 					Vector<Cart> vCart = Main.getvCartByUser(activateUser);
 					int x = 100;
 					for (Cart cart : vCart) {
-						if(cart.getItem() == itemSelected){
+						if (cart.getItem() == itemSelected) {
 							x = 100 - cart.getQuantity();
 						}
 					}
