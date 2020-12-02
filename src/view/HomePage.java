@@ -58,7 +58,6 @@ public class HomePage extends JFrame implements ActionListener {
 			try {
 				image = ImageIO.read(new File("assets/background.jpg"));
 			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 
@@ -163,8 +162,6 @@ public class HomePage extends JFrame implements ActionListener {
 			try {
 				showAllItem.setSelected(true);
 			} catch (PropertyVetoException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			}
 
 		} else if (e.getSource() == viewCart) {
@@ -179,8 +176,6 @@ public class HomePage extends JFrame implements ActionListener {
 			try {
 				viewCarts.setSelected(true);
 			} catch (PropertyVetoException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			}
 		} else if (e.getSource() == historyCart) {
 			if (showHistory == null || showHistory.isClosed()) {
@@ -194,8 +189,6 @@ public class HomePage extends JFrame implements ActionListener {
 			try {
 				showHistory.setSelected(true);
 			} catch (PropertyVetoException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			}
 
 		} else if (e.getSource() == logOut) {

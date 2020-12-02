@@ -78,7 +78,7 @@ public class Main {
 
 	private static void initializeUser() {
 		vUser = new Vector<>();
-		vUser.add(new User("Jethro Otto", "LAZERWAVE", "jethro@otto.com", "asd123"));
+//		vUser.add(new User("Jethro Otto", "LAZERWAVE", "jethro@otto.com", "asd123"));
 	}
 
 	public static Vector<User> getvUser() {

@@ -53,7 +53,6 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 		try {
 			this.setFrameIcon(new ImageIcon("assets/icon25.png"));
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 
 		setTitle("All Item");
@@ -137,8 +136,6 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 						long total = qty * price;
 						tfTotalPrice.setText(total + " G");
 					} catch (NumberFormatException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
 					}
 				}
 			}
@@ -243,6 +240,7 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 	}
 
 	public void refreshTable() {
+		itemSelected = null;
 		this.getContentPane().removeAll();
 		initializeAll();
 		this.revalidate();
@@ -280,11 +278,8 @@ public class ShowAllItem extends JInternalFrame implements MouseListener {
 					sItemQuantity.setModel(sm);
 					sItemQuantity.setValue(0);
 					tfTotalPrice.setText("0 G");
-					itemSelected = null;
 					HomePage.getInstance().viewCarts.refreshTable();
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
 				refreshTable();
 			} else {

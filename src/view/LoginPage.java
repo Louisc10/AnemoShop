@@ -39,7 +39,6 @@ public class LoginPage extends JFrame implements ActionListener {
 		try {
 			this.setIconImage(ImageIO.read(new File("assets/icon256.png")));
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		setSize(450, 250);
 

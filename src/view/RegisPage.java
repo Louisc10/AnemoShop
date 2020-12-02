@@ -44,7 +44,6 @@ public class RegisPage extends JFrame implements ActionListener{
 		try {
 			this.setIconImage(ImageIO.read(new File("assets/icon256.png")));
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

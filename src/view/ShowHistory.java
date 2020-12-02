@@ -50,7 +50,6 @@ public class ShowHistory extends JInternalFrame implements MouseListener {
 		try {
 			this.setFrameIcon(new ImageIcon("assets/icon25.png"));
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 
 		setTitle("History");
